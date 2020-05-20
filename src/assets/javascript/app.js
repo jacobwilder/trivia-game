@@ -24,6 +24,8 @@ $(document).ready(function () {
                 text: 'Click to try again',
                 icon: 'error',
                 confirmButtonText: 'Restart'
+              }).then(function(result) {
+                  window.location = 'index.html';
               });
             stop();
         }
