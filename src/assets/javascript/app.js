@@ -13,7 +13,7 @@ $(document).ready(function () {
             correct: "1877"
         },
         {
-            question: "In what year was the first ever Wimbledon Championship held?",
+            question: "Which element is seen as 'Hg' on the periodic table?",
             answers: [
                 "Iron",
                 "Nickel",
@@ -505,7 +505,7 @@ $(document).ready(function () {
     $(".questions").hide();
 
     $("#start").on("click", timer);
-
+    
     // adds questions to headers with respective tags
     $("#question1").prepend(questions[0].question);
     $("#question2").prepend(questions[1].question);
