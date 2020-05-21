@@ -505,34 +505,48 @@ $(document).ready(function () {
     $(".questions").hide();
 
     $("#start").on("click", timer);
-    
+    $("#submit").on("click", finish);
+
+    var randomQ = questions[Math.round((Math.random()*questions.length)+1)];
+    var randomQ2 = questions[Math.round((Math.random()*questions.length)+1)];
+    var randomQ3 = questions[Math.round((Math.random()*questions.length)+1)];
+    var randomQ4 = questions[Math.round((Math.random()*questions.length)+1)];
+    var randomQ5 = questions[Math.round((Math.random()*questions.length)+1)];
     // adds questions to headers with respective tags
-    $("#question1").prepend(questions[0].question);
-    $("#question2").prepend(questions[1].question);
-    $("#question3").prepend(questions[2].question);
-    $("#question4").prepend(questions[3].question);
+    console.log(randomQ);
+    $("#question1").prepend(randomQ.question);
+    $("#question2").prepend(randomQ2.question);
+    $("#question3").prepend(randomQ3.question);
+    $("#question4").prepend(randomQ4.question);
+    $("#question5").prepend(randomQ5.question);
 
     $("#question1-answers input").each(function (i) {
 
-        $(this).next().html(questions[0].answers[i]);
+        $(this).next().html(randomQ.answers[i]);
 
     });
 
     $("#question2-answers input").each(function (i) {
 
-        $(this).next().html(questions[1].answers[i]);
+        $(this).next().html(randomQ2.answers[i]);
 
     });
 
     $("#question3-answers input").each(function (i) {
 
-        $(this).next().html(questions[2].answers[i]);
+        $(this).next().html(randomQ3.answers[i]);
 
     });
 
     $("#question4-answers input").each(function (i) {
 
-        $(this).next().html(questions[3].answers[i]);
+        $(this).next().html(randomQ4.answers[i]);
+
+    });
+
+    $("#question5-answers input").each(function (i) {
+
+        $(this).next().html(randomQ5.answers[i]);
 
     });
 
@@ -577,10 +591,35 @@ $(document).ready(function () {
                 wrong++;
             }
         }
+    }
+
+    function finish() {
+        clearInterval(countDown);
+        
+        $("#timeRemaining").hide();
+        $("#submit").hide();
+        $("#questioncontainer").hide();
+        $("#results").show();
+        $("#reset").show();
+        
+        userChoice.push($('input[name="inlineRadioOptions1"]:checked').val());
+        userChoice.push($('input[name="inlineRadioOptions2"]:checked').val());
+        userChoice.push($('input[name="inlineRadioOptions3"]:checked').val());
+        userChoice.push($('input[name="inlineRadioOptions4"]:checked').val());
+
+        for (i = 0; i < questions.length; i++) {
+            if (userChoice[i] === questions[i].correct) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
 
         $("#correct").html("<h2>Correct Guesses: " + correct + "</h2>");
-        $("#wrong").html("<h2>Wrong Guesses: " + wrong + "</h2>");
-        $("#score").html("<h2>Total Score: " + correct + " out of " + (wrong + correct) + "</h2>");
+        $("#wrong").html("<h2>Wrong Guesses: " + incorrect + "</h2>");
+        $("#score").html("<h2>Total Score: " + correct + " out of " + (incorrect + correct) + "</h2>");
+
+
     }
 
 })
