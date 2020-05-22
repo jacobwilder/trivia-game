@@ -512,12 +512,9 @@ $(document).ready(function () {
     var randomQ3 = questions[Math.round(Math.random()*questions.length)];
     var randomQ4 = questions[Math.round(Math.random()*questions.length)];
     var randomQ5 = questions[Math.round(Math.random()*questions.length)];
+    
+    
     // adds questions to headers with respective tags
-    console.log(randomQ);
-    console.log(randomQ2);
-    console.log(randomQ3);
-    console.log(randomQ4);
-    console.log(randomQ5);
     $("#question1").prepend(randomQ.question);
     $("#question2").prepend(randomQ2.question);
     $("#question3").prepend(randomQ3.question);
