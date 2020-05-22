@@ -583,6 +583,7 @@ $(document).ready(function () {
         userChoice.push($('input[name="inlineRadioOptions2"]:checked').val());
         userChoice.push($('input[name="inlineRadioOptions3"]:checked').val());
         userChoice.push($('input[name="inlineRadioOptions4"]:checked').val());
+        userChoice.push($('input[name="inlineRadioOptions5"]:checked').val());
 
         for (i = 0; i < questions.length; i++) {
             if (userChoice[i] === questions[i].correct) {
@@ -606,6 +607,7 @@ $(document).ready(function () {
         userChoice.push($('input[name="inlineRadioOptions2"]:checked').val());
         userChoice.push($('input[name="inlineRadioOptions3"]:checked').val());
         userChoice.push($('input[name="inlineRadioOptions4"]:checked').val());
+        userChoice.push($('input[name="inlineRadioOptions5"]:checked').val());
 
         for (i = 0; i < questions.length; i++) {
             if (userChoice[i] === questions[i].correct) {
