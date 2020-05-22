@@ -210,7 +210,7 @@ $(document).ready(function () {
                 "U",
                 "O"
             ],
-            answers: "A"
+            correct: "A"
         },
         {
             question: "What was Britney Spears’ first song?",
@@ -507,13 +507,17 @@ $(document).ready(function () {
     $("#start").on("click", timer);
     $("#submit").on("click", finish);
 
-    var randomQ = questions[Math.round((Math.random()*questions.length)+1)];
-    var randomQ2 = questions[Math.round((Math.random()*questions.length)+1)];
-    var randomQ3 = questions[Math.round((Math.random()*questions.length)+1)];
-    var randomQ4 = questions[Math.round((Math.random()*questions.length)+1)];
-    var randomQ5 = questions[Math.round((Math.random()*questions.length)+1)];
+    var randomQ = questions[Math.round(Math.random()*questions.length)];
+    var randomQ2 = questions[Math.round(Math.random()*questions.length)];
+    var randomQ3 = questions[Math.round(Math.random()*questions.length)];
+    var randomQ4 = questions[Math.round(Math.random()*questions.length)];
+    var randomQ5 = questions[Math.round(Math.random()*questions.length)];
     // adds questions to headers with respective tags
     console.log(randomQ);
+    console.log(randomQ2);
+    console.log(randomQ3);
+    console.log(randomQ4);
+    console.log(randomQ5);
     $("#question1").prepend(randomQ.question);
     $("#question2").prepend(randomQ2.question);
     $("#question3").prepend(randomQ3.question);
