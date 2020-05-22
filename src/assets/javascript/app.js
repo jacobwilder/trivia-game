@@ -507,53 +507,60 @@ $(document).ready(function () {
     $("#start").on("click", timer);
     $("#submit").on("click", finish);
 
-    var randomQ = questions[Math.round(Math.random()*questions.length)];
-    var randomQ2 = questions[Math.round(Math.random()*questions.length)];
-    var randomQ3 = questions[Math.round(Math.random()*questions.length)];
-    var randomQ4 = questions[Math.round(Math.random()*questions.length)];
-    var randomQ5 = questions[Math.round(Math.random()*questions.length)];
     
+    //quiz formation function WORK IN PROGRESS
+    function populateQuiz() {
+
+        var randomQ = questions[Math.round(Math.random()*questions.length)];
+        var randomQ2 = questions[Math.round(Math.random()*questions.length)];
+        var randomQ3 = questions[Math.round(Math.random()*questions.length)];
+        var randomQ4 = questions[Math.round(Math.random()*questions.length)];
+        var randomQ5 = questions[Math.round(Math.random()*questions.length)];
+        
+        $("#question1").prepend(randomQ.question);
+        $("#question2").prepend(randomQ2.question);
+        $("#question3").prepend(randomQ3.question);
+        $("#question4").prepend(randomQ4.question);
+        $("#question5").prepend(randomQ5.question);
     
+        $("#question1-answers input").each(function (i) {
+    
+            $(this).next().html(randomQ.answers[i]);
+    
+        });
+    
+        $("#question2-answers input").each(function (i) {
+    
+            $(this).next().html(randomQ2.answers[i]);
+    
+        });
+    
+        $("#question3-answers input").each(function (i) {
+    
+            $(this).next().html(randomQ3.answers[i]);
+    
+        });
+    
+        $("#question4-answers input").each(function (i) {
+    
+            $(this).next().html(randomQ4.answers[i]);
+    
+        });
+    
+        $("#question5-answers input").each(function (i) {
+    
+            $(this).next().html(randomQ5.answers[i]);
+    
+        });
+
+
+    }
     // adds questions to headers with respective tags
-    $("#question1").prepend(randomQ.question);
-    $("#question2").prepend(randomQ2.question);
-    $("#question3").prepend(randomQ3.question);
-    $("#question4").prepend(randomQ4.question);
-    $("#question5").prepend(randomQ5.question);
-
-    $("#question1-answers input").each(function (i) {
-
-        $(this).next().html(randomQ.answers[i]);
-
-    });
-
-    $("#question2-answers input").each(function (i) {
-
-        $(this).next().html(randomQ2.answers[i]);
-
-    });
-
-    $("#question3-answers input").each(function (i) {
-
-        $(this).next().html(randomQ3.answers[i]);
-
-    });
-
-    $("#question4-answers input").each(function (i) {
-
-        $(this).next().html(randomQ4.answers[i]);
-
-    });
-
-    $("#question5-answers input").each(function (i) {
-
-        $(this).next().html(randomQ5.answers[i]);
-
-    });
 
     function timer() {
         clearInterval(countDown);
         countDown = setInterval(decrement, 1000);
+        populateQuiz();
         $(".jumbotron").html("<h2>Time Remaining: " + timeLeft + "</h2>");
         $("#buttons").hide();
         $("#finish").show();
