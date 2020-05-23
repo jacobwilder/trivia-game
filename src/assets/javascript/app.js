@@ -610,6 +610,8 @@ $(document).ready(function () {
         $("#questioncontainer").hide();
         $("#results").show();
         $("#reset").show();
+
+        console.log(userChoice);
         
         userChoice.push($('input[name="inlineRadioOptions1"]:checked').val());
         userChoice.push($('input[name="inlineRadioOptions2"]:checked').val());
@@ -619,6 +621,7 @@ $(document).ready(function () {
 
         for (i = 0; i < questions.length; i++) {
             if (userChoice[i] === questions[i].correct) {
+                console.log("user: " + userChoice[i] + " correct: " + questions[i].correct);
                 correct++;
             } else {
                 incorrect++;
