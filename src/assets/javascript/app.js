@@ -499,7 +499,7 @@ $(document).ready(function () {
     let correct = 0;
     let incorrect = 0;
     let userChoice = [];
-    let generatedQuiz;
+    let quizArr = [];
 
     $("#finish").hide();
     $(".questions").hide();
@@ -509,53 +509,63 @@ $(document).ready(function () {
     $("#submit").on("click", finish);
 
     
-    //quiz formation function WORK IN PROGRESS
-    function populateQuiz() {
-        let quizArr = [];
-        var randomQ = questions[Math.round(Math.random()*questions.length)];
-        var randomQ2 = questions[Math.round(Math.random()*questions.length)];
-        var randomQ3 = questions[Math.round(Math.random()*questions.length)];
-        var randomQ4 = questions[Math.round(Math.random()*questions.length)];
-        var randomQ5 = questions[Math.round(Math.random()*questions.length)];
+    let randomQ = questions[Math.round(Math.random()*questions.length)];
+        let randomQ2 = questions[Math.round(Math.random()*questions.length)];
+        let randomQ3 = questions[Math.round(Math.random()*questions.length)];
+        let randomQ4 = questions[Math.round(Math.random()*questions.length)];
+        let randomQ5 = questions[Math.round(Math.random()*questions.length)];
 
         quizArr.push(randomQ, randomQ2, randomQ3, randomQ4, randomQ5);
-
-
-
+        let sortedArr = quizArr.slice().sort();
+        let duplicatesArr = [];
         
-        $("#question1").prepend(quizArr[0].question);
-        $("#question2").prepend(quizArr[1].question);
-        $("#question3").prepend(quizArr[2].question);
-        $("#question4").prepend(quizArr[3].question);
-        $("#question5").prepend(quizArr[4].question);
+        for (let i = 0; i < quizArr.length - 1; i++) {
+            if (sortedArr[i+1] === sortedArr[i]) {
+                console.log("DUPLICATE FOUND");
+                duplicatesArr.push(sortedArr[i]);
+            }
+
+        }
+
+        console.log(quizArr.slice().sort());
+        console.log(sortedArr);
+    
+    //quiz formation function WORK IN PROGRESS
+    function populateQuiz() {
+
+        $("#question1").prepend(sortedArr[0].question);
+        $("#question2").prepend(sortedArr[1].question);
+        $("#question3").prepend(sortedArr[2].question);
+        $("#question4").prepend(sortedArr[3].question);
+        $("#question5").prepend(sortedArr[4].question);
     
         $("#question1-answers input").each(function (i) {
     
-            $(this).next().html(quizArr[0].answers[i]);
+            $(this).next().html(sortedArr[0].answers[i]);
     
         });
     
         $("#question2-answers input").each(function (i) {
     
-            $(this).next().html(quizArr[1].answers[i]);
+            $(this).next().html(sortedArr[1].answers[i]);
     
         });
     
         $("#question3-answers input").each(function (i) {
     
-            $(this).next().html(quizArr[2].answers[i]);
+            $(this).next().html(sortedArr[2].answers[i]);
     
         });
     
         $("#question4-answers input").each(function (i) {
     
-            $(this).next().html(quizArr[3].answers[i]);
+            $(this).next().html(sortedArr[3].answers[i]);
     
         });
     
         $("#question5-answers input").each(function (i) {
     
-            $(this).next().html(quizArr[4].answers[i]);
+            $(this).next().html(sortedArr[4].answers[i]);
     
         });
 
@@ -616,6 +626,7 @@ $(document).ready(function () {
         $("#questioncontainer").hide();
         $("#results").show();
         $("#reset").show();
+        $("#continue").show();
 
         console.log(userChoice);
         
