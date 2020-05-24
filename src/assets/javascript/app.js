@@ -503,6 +503,7 @@ $(document).ready(function () {
 
     $("#finish").hide();
     $(".questions").hide();
+    $("#continue").hide();
 
     $("#start").on("click", timer);
     $("#submit").on("click", finish);
@@ -510,46 +511,51 @@ $(document).ready(function () {
     
     //quiz formation function WORK IN PROGRESS
     function populateQuiz() {
-
+        let quizArr = [];
         var randomQ = questions[Math.round(Math.random()*questions.length)];
         var randomQ2 = questions[Math.round(Math.random()*questions.length)];
         var randomQ3 = questions[Math.round(Math.random()*questions.length)];
         var randomQ4 = questions[Math.round(Math.random()*questions.length)];
         var randomQ5 = questions[Math.round(Math.random()*questions.length)];
+
+        quizArr.push(randomQ, randomQ2, randomQ3, randomQ4, randomQ5);
+
+
+
         
-        $("#question1").prepend(randomQ.question);
-        $("#question2").prepend(randomQ2.question);
-        $("#question3").prepend(randomQ3.question);
-        $("#question4").prepend(randomQ4.question);
-        $("#question5").prepend(randomQ5.question);
+        $("#question1").prepend(quizArr[0].question);
+        $("#question2").prepend(quizArr[1].question);
+        $("#question3").prepend(quizArr[2].question);
+        $("#question4").prepend(quizArr[3].question);
+        $("#question5").prepend(quizArr[4].question);
     
         $("#question1-answers input").each(function (i) {
     
-            $(this).next().html(randomQ.answers[i]);
+            $(this).next().html(quizArr[0].answers[i]);
     
         });
     
         $("#question2-answers input").each(function (i) {
     
-            $(this).next().html(randomQ2.answers[i]);
+            $(this).next().html(quizArr[1].answers[i]);
     
         });
     
         $("#question3-answers input").each(function (i) {
     
-            $(this).next().html(randomQ3.answers[i]);
+            $(this).next().html(quizArr[2].answers[i]);
     
         });
     
         $("#question4-answers input").each(function (i) {
     
-            $(this).next().html(randomQ4.answers[i]);
+            $(this).next().html(quizArr[3].answers[i]);
     
         });
     
         $("#question5-answers input").each(function (i) {
     
-            $(this).next().html(randomQ5.answers[i]);
+            $(this).next().html(quizArr[4].answers[i]);
     
         });
 
