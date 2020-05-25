@@ -1,5 +1,4 @@
 // import questions from './quiz';
-
 $(document).ready(function () {
     import questions from './questions';
     console.log("QUESTIONS" + questions);
