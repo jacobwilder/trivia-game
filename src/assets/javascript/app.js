@@ -509,63 +509,74 @@ $(document).ready(function () {
     $("#submit").on("click", finish);
 
     
-        let randomQ = questions[Math.round(Math.random()*questions.length)];
-        let randomQ2 = questions[Math.round(Math.random()*questions.length)];
-        let randomQ3 = questions[Math.round(Math.random()*questions.length)];
-        let randomQ4 = questions[Math.round(Math.random()*questions.length)];
-        let randomQ5 = questions[Math.round(Math.random()*questions.length)];
+    let quizBank = questions.slice();
+    let output = [];
+    while (quizBank.length > 0 && output.length < 5) {
+        let index = Math.random() * quizBank.length;
+        let question = quizBank.splice(index, 1);
+        output.push(question[0]);
+    }
 
-        quizArr.push(randomQ, randomQ2, randomQ3, randomQ4, randomQ5);
-        let sortedArr = quizArr.slice().sort();
-        let duplicatesArr = [];
+    console.log("quizBank: " + JSON.stringify(quizBank, null, 4));
+    console.log("output: " + JSON.stringify(output, null, 4));
+    console.table(output);
+        // let randomQ = questions[Math.round(Math.random()*questions.length)];
+        // let randomQ2 = questions[Math.round(Math.random()*questions.length)];
+        // let randomQ3 = questions[Math.round(Math.random()*questions.length)];
+        // let randomQ4 = questions[Math.round(Math.random()*questions.length)];
+        // let randomQ5 = questions[Math.round(Math.random()*questions.length)];
+
+        // quizArr.push(randomQ, randomQ2, randomQ3, randomQ4, randomQ5);
+        // let sortedArr = quizArr.slice();
+        // let duplicatesArr = [];
         
-        for (let i = 0; i < quizArr.length - 1; i++) {
-            if (sortedArr[i+1] === sortedArr[i]) {
-                console.log("DUPLICATE FOUND");
-                duplicatesArr.push(sortedArr[i]);
-            }
+        // for (let i = 0; i < quizArr.length - 1; i++) {
+        //     if (sortedArr[i+1] === sortedArr[i]) {
+        //         console.log("DUPLICATE FOUND");
+        //         duplicatesArr.push(sortedArr[i]);
+        //     }
 
-        }
+        // }
 
-        console.log(quizArr.slice().sort());
-        console.log(sortedArr);
+        // console.log(quizArr.slice().sort());
+        // console.log(sortedArr);
     
     //quiz formation function WORK IN PROGRESS
     function populateQuiz() {
 
-        $("#question1").prepend(sortedArr[0].question);
-        $("#question2").prepend(sortedArr[1].question);
-        $("#question3").prepend(sortedArr[2].question);
-        $("#question4").prepend(sortedArr[3].question);
-        $("#question5").prepend(sortedArr[4].question);
+        $("#question1").prepend(output[0].question);
+        $("#question2").prepend(output[1].question);
+        $("#question3").prepend(output[2].question);
+        $("#question4").prepend(output[3].question);
+        $("#question5").prepend(output[4].question);
     
         $("#question1-answers input").each(function (i) {
     
-            $(this).next().html(sortedArr[0].answers[i]);
+            $(this).next().html(output[0].answers[i]);
     
         });
     
         $("#question2-answers input").each(function (i) {
     
-            $(this).next().html(sortedArr[1].answers[i]);
+            $(this).next().html(output[1].answers[i]);
     
         });
     
         $("#question3-answers input").each(function (i) {
     
-            $(this).next().html(sortedArr[2].answers[i]);
+            $(this).next().html(output[2].answers[i]);
     
         });
     
         $("#question4-answers input").each(function (i) {
     
-            $(this).next().html(sortedArr[3].answers[i]);
+            $(this).next().html(output[3].answers[i]);
     
         });
     
         $("#question5-answers input").each(function (i) {
     
-            $(this).next().html(sortedArr[4].answers[i]);
+            $(this).next().html(output[4].answers[i]);
     
         });
 
