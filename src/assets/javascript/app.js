@@ -2,7 +2,7 @@
 
 $(document).ready(function () {
     import questions from './questions';
-console.log("QUESTIONS" + questions);
+    console.log("QUESTIONS" + questions);
     // Object consisting of 50 questions
 
 
