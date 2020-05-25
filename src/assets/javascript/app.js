@@ -509,7 +509,7 @@ $(document).ready(function () {
     $("#submit").on("click", finish);
 
     
-    let randomQ = questions[Math.round(Math.random()*questions.length)];
+        let randomQ = questions[Math.round(Math.random()*questions.length)];
         let randomQ2 = questions[Math.round(Math.random()*questions.length)];
         let randomQ3 = questions[Math.round(Math.random()*questions.length)];
         let randomQ4 = questions[Math.round(Math.random()*questions.length)];
