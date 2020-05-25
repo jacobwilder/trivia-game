@@ -582,7 +582,7 @@ $(document).ready(function () {
                 text: 'Click to try again',
                 icon: 'error',
                 confirmButtonText: 'Retry?'
-            }).then(function (result) {
+            }).then(function() {
                 window.location = 'index.html';
             });
             stop();
