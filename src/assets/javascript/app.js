@@ -502,10 +502,11 @@ $(document).ready(function () {
 
     $("#finish").hide();
     $(".questions").hide();
-    $("#continue").hide();
+    $("#retry").hide();
 
     $("#start").on("click", timer);
     $("#submit").on("click", finish);
+    $("#retry").on("click", retry);
 
     
     let quizBank = questions.slice();
@@ -532,31 +533,35 @@ $(document).ready(function () {
         $("#question1-answers input").each(function (i) {
     
             $(this).next().html(output[0].answers[i]);
-    
+            $(this).attr("value", output[0].answers[i])
         });
     
         $("#question2-answers input").each(function (i) {
     
             $(this).next().html(output[1].answers[i]);
+            $(this).attr("value", output[1].answers[i])
     
         });
     
         $("#question3-answers input").each(function (i) {
     
             $(this).next().html(output[2].answers[i]);
-    
+            $(this).attr("value", output[2].answers[i])
+        
         });
     
         $("#question4-answers input").each(function (i) {
     
             $(this).next().html(output[3].answers[i]);
-    
+            $(this).attr("value", output[3].answers[i])
+        
         });
     
         $("#question5-answers input").each(function (i) {
     
             $(this).next().html(output[4].answers[i]);
-    
+            $(this).attr("value", output[4].answers[i])
+
         });
 
 
@@ -617,7 +622,7 @@ $(document).ready(function () {
         $("#questioncontainer").hide();
         $("#results").show();
         $("#reset").show();
-        $("#continue").show();
+        $("#retry").show();
         
         userChoice.push($('input[name=inlineRadioOptions1]:checked').val());
         userChoice.push($('input[name=inlineRadioOptions2]:checked').val());
@@ -641,6 +646,18 @@ $(document).ready(function () {
         $("#score").html("<h2>Total Score: " + correct + " out of " + (incorrect + correct) + "</h2>");
 
 
+    }
+
+    function retry() {
+        clearInterval(countDown);
+        countDown = setInterval(decrement, 1000);
+        
+        populateQuiz();
+        
+        $(".jumbotron").html("<h2>Time Remaining: " + timeLeft + "</h2>");
+        $("#buttons").hide();
+        $("#finish").show();
+        $(".questions").show();
     }
 
 })
