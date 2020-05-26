@@ -593,11 +593,11 @@ $(document).ready(function () {
     function stop() {
         clearInterval(countDown);
 
-        userChoice.push($('input[name="inlineRadioOptions1"]:checked').val());
-        userChoice.push($('input[name="inlineRadioOptions2"]:checked').val());
-        userChoice.push($('input[name="inlineRadioOptions3"]:checked').val());
-        userChoice.push($('input[name="inlineRadioOptions4"]:checked').val());
-        userChoice.push($('input[name="inlineRadioOptions5"]:checked').val());
+        userChoice.push($('input[name=inlineRadioOptions1]:checked').val());
+        userChoice.push($('input[name=inlineRadioOptions2]:checked').val());
+        userChoice.push($('input[name=inlineRadioOptions3]:checked').val());
+        userChoice.push($('input[name=inlineRadioOptions4]:checked').val());
+        userChoice.push($('input[name=inlineRadioOptions5]:checked').val());
 
         console.log(userChoice);
         for (i = 0; i < output.length; i++) {
@@ -619,11 +619,11 @@ $(document).ready(function () {
         $("#reset").show();
         $("#continue").show();
         
-        userChoice.push($('input[name="inlineRadioOptions1"]:checked').val());
-        userChoice.push($('input[name="inlineRadioOptions2"]:checked').val());
-        userChoice.push($('input[name="inlineRadioOptions3"]:checked').val());
-        userChoice.push($('input[name="inlineRadioOptions4"]:checked').val());
-        userChoice.push($('input[name="inlineRadioOptions5"]:checked').val());
+        userChoice.push($('input[name=inlineRadioOptions1]:checked').val());
+        userChoice.push($('input[name=inlineRadioOptions2]:checked').val());
+        userChoice.push($('input[name=inlineRadioOptions3]:checked').val());
+        userChoice.push($('input[name=inlineRadioOptions4]:checked').val());
+        userChoice.push($('input[name=inlineRadioOptions5]:checked').val());
 
         console.log(userChoice);
 
