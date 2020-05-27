@@ -651,6 +651,10 @@ $(document).ready(function () {
     //WORK IN PROGRESS
     function retry() {
         timeLeft = 20;
+        if (correct == 5) {
+            timeLeft = timeLeft + correct;
+        }
+
         clearInterval(countDown);
         countDown = setInterval(decrement, 1000);
         
@@ -661,6 +665,7 @@ $(document).ready(function () {
         $("#buttons").hide();
         $("#finish").show();
         $("#results").hide();
+        $("input").prop('checked', false);
     }
 
 })
