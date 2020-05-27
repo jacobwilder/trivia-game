@@ -648,16 +648,19 @@ $(document).ready(function () {
 
     }
 
+    //WORK IN PROGRESS
     function retry() {
+        timeLeft = 20;
         clearInterval(countDown);
         countDown = setInterval(decrement, 1000);
         
         populateQuiz();
-        
+        $(".questions").show();
         $(".jumbotron").html("<h2>Time Remaining: " + timeLeft + "</h2>");
+        
         $("#buttons").hide();
         $("#finish").show();
-        $(".questions").show();
+        $("#results").hide();
     }
 
 })
