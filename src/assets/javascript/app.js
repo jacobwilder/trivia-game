@@ -499,6 +499,8 @@ $(document).ready(function () {
     let correct = 0;
     let incorrect = 0;
     let userChoice = [];
+    let quizBank = questions.slice();
+    let output = [];
 
     $("#finish").hide();
     $(".questions").hide();
@@ -508,21 +510,18 @@ $(document).ready(function () {
     $("#submit").on("click", finish);
     $("#retry").on("click", retry);
 
-    
-    let quizBank = questions.slice();
-    let output = [];
-    while (quizBank.length > 0 && output.length < 5) {
-        let index = Math.random() * quizBank.length;
-        let question = quizBank.splice(index, 1);
-        output.push(question[0]);
-    }
-
     console.log("quizBank: " + JSON.stringify(quizBank, null, 4));
     console.log("output: " + JSON.stringify(output, null, 4));
     console.table(output);
     
     //quiz formation function WORK IN PROGRESS
     function populateQuiz() {
+
+            while (quizBank.length > 0 && output.length < 5) {
+            let index = Math.random() * quizBank.length;
+            let question = quizBank.splice(index, 1);
+            output.push(question[0]);
+            }
 
         $("#question1").prepend(output[0].question);
         $("#question2").prepend(output[1].question);
@@ -650,15 +649,20 @@ $(document).ready(function () {
 
     //WORK IN PROGRESS
     function retry() {
+
         timeLeft = 20;
         if (correct == 5) {
             timeLeft = timeLeft + correct;
         }
 
+        
+        quizBank = questions.slice();
+        output = [];
+
         clearInterval(countDown);
         countDown = setInterval(decrement, 1000);
-        
         populateQuiz();
+        
         $(".questions").show();
         $(".jumbotron").html("<h2>Time Remaining: " + timeLeft + "</h2>");
         
