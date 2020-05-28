@@ -517,6 +517,8 @@ $(document).ready(function () {
     
     //quiz formation function WORK IN PROGRESS
     function populateQuiz() {
+        $("h3").html("");
+        $("input").val("");
 
             while (quizBank.length > 0 && output.length < 5) {
             let index = Math.random() * quizBank.length;
@@ -590,29 +592,10 @@ $(document).ready(function () {
             }).then(function() {
                 window.location = 'index.html';
             });
-            stop();
+            clearInterval(countDown);
         }
     }
 
-
-    function stop() {
-        clearInterval(countDown);
-
-        userChoice.push($('input[name=inlineRadioOptions1]:checked').val());
-        userChoice.push($('input[name=inlineRadioOptions2]:checked').val());
-        userChoice.push($('input[name=inlineRadioOptions3]:checked').val());
-        userChoice.push($('input[name=inlineRadioOptions4]:checked').val());
-        userChoice.push($('input[name=inlineRadioOptions5]:checked').val());
-
-        console.log(userChoice);
-        for (i = 0; i < output.length; i++) {
-            if (userChoice[i] === output[i].correct) {
-                correct++;
-            } else {
-                wrong++;
-            }
-        }
-    }
 
     function finish() {
         clearInterval(countDown);
@@ -629,8 +612,6 @@ $(document).ready(function () {
         userChoice.push($('input[name=inlineRadioOptions3]:checked').val());
         userChoice.push($('input[name=inlineRadioOptions4]:checked').val());
         userChoice.push($('input[name=inlineRadioOptions5]:checked').val());
-
-        console.log(userChoice);
 
         for (i = 0; i < output.length; i++) {
             if (userChoice[i] === output[i].correct) {
@@ -659,8 +640,9 @@ $(document).ready(function () {
         $("#submit").show();
 
         quizBank = questions.slice();
-        document.getElementsByTagName("h3").innerHTML = "";
-        document.getElementsByTagName("input").val = "";
+
+        $("h3").html("");
+        $("input").val("");
 
         for(i = 0; i < questions.length; i++) {
             for( j = 0; j < output.length; j++) {
