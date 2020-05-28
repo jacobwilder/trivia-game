@@ -649,15 +649,36 @@ $(document).ready(function () {
 
     //WORK IN PROGRESS
     function retry() {
-
+        
         timeLeft = 20;
         if (correct == 5) {
             timeLeft = timeLeft + correct;
         }
+        
+        $("#questioncontainer").show();
+        $("#submit").show();
 
+        quizBank = questions.slice();
+        document.getElementsByTagName("h3").innerHTML = "";
+        document.getElementsByTagName("input").val = "";
+
+        for(i = 0; i < questions.length; i++) {
+            for( j = 0; j < output.length; j++) {
+                if(questions[i] == output[j]) {
+                    output = [];
+                    quizTaken.push(questions[i]);
+                    console.table(output);
+                }
+            }
+        }
+
+        populateQuiz();
+
+        console.log("quizBank: " + JSON.stringify(quizBank, null, 4));
+        console.log("output: " + JSON.stringify(output, null, 4));
+        
         clearInterval(countDown);
         countDown = setInterval(decrement, 1000);
-        populateQuiz();
         
         $(".questions").show();
         $(".jumbotron").html("<h2>Time Remaining: " + timeLeft + "</h2>");
