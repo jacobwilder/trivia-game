@@ -501,6 +501,7 @@ $(document).ready(function () {
     let userChoice = [];
     let quizBank = questions.slice();
     let output = [];
+    let quizTaken = [];
 
     $("#finish").hide();
     $(".questions").hide();
@@ -633,7 +634,6 @@ $(document).ready(function () {
 
         for (i = 0; i < output.length; i++) {
             if (userChoice[i] === output[i].correct) {
-                console.log("user: " + userChoice[i] + " correct: " + output[i].correct);
                 correct++;
             } else {
                 incorrect++;
@@ -655,7 +655,6 @@ $(document).ready(function () {
             timeLeft = timeLeft + correct;
         }
 
-        
         quizBank = questions.slice();
         output = [];
 
