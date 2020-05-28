@@ -655,9 +655,6 @@ $(document).ready(function () {
             timeLeft = timeLeft + correct;
         }
 
-        quizBank = questions.slice();
-        output = [];
-
         clearInterval(countDown);
         countDown = setInterval(decrement, 1000);
         populateQuiz();
