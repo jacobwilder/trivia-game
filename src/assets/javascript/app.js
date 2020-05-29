@@ -501,7 +501,6 @@ $(document).ready(function () {
     let userChoice = [];
     let quizBank = questions.slice();
     let output = [];
-    let quizTaken = [];
 
     $("#finish").hide();
     $(".questions").hide();
@@ -621,11 +620,11 @@ $(document).ready(function () {
             }
         }
 
+        output = [];
+
         $("#correct").html("<h2>Correct Guesses: " + correct + "</h2>");
         $("#wrong").html("<h2>Wrong Guesses: " + incorrect + "</h2>");
         $("#score").html("<h2>Total Score: " + correct + " out of " + (incorrect + correct) + "</h2>");
-
-
     }
 
     //WORK IN PROGRESS
@@ -643,16 +642,6 @@ $(document).ready(function () {
 
         $("h3").html("");
         $("input").val("");
-
-        for(i = 0; i < questions.length; i++) {
-            for( j = 0; j < output.length; j++) {
-                if(questions[i] == output[j]) {
-                    output = [];
-                    quizTaken.push(questions[i]);
-                    console.table(output);
-                }
-            }
-        }
 
         populateQuiz();
 
