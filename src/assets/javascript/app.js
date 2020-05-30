@@ -469,7 +469,7 @@ $(document).ready(function () {
             "Soft",
             "Hard"
         ],
-        correct: "To be played softly"
+        correct: "Soft"
     },
     {
         question: "Who was the first American to go into space?",
