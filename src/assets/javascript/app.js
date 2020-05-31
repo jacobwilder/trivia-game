@@ -501,6 +501,7 @@ $(document).ready(function () {
     let userChoice = [];
     let quizBank = questions.slice();
     let output = [];
+    let answered =[];
 
     $("#finish").hide();
     $(".questions").hide();
@@ -615,10 +616,18 @@ $(document).ready(function () {
         for (i = 0; i < output.length; i++) {
             if (userChoice[i] === output[i].correct) {
                 correct++;
+                $(answered).push(output[i]);
             } else {
                 incorrect++;
             }
+            // WORK IN PROGRESS (REMOVE ANSWERED QUESTIONS FROM ARRAY)
+            // for (i = 0; i < questions.length; i ++) {
+            //     if (questions[i].correct == output[i].correct) {
+            //         questions.splice(i, 1);
+            //     }
+            // }
         }
+
 
         output = [];
 
