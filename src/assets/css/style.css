@@ -6,10 +6,14 @@ body {
     background-position: top;
     width: 100%;
     height: 100%;
-    font-family: Arial, Helvetica;
+    font-family: 'Montserrat', sals-serif;
     letter-spacing: 0.02em;
      font-weight: 400;
     -webkit-font-smoothing: antialiased; 
+}
+
+.questions {
+    font-family: 'Roboto Mono', monospace;
 }
 
 .jumbotron {
