@@ -598,6 +598,7 @@ $(document).ready(function () {
 
 
     function finish() {
+
         clearInterval(countDown);
         
         $("#timeRemaining").hide();
@@ -638,6 +639,8 @@ $(document).ready(function () {
 
     //WORK IN PROGRESS
     function retry() {
+        correct = 0;
+        incorrect = 0;
         
         timeLeft = 20;
         if (correct == 5) {

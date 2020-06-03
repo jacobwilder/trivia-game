@@ -33,7 +33,7 @@ body {
      
    }
    
-   /* .card-bg:after{
+   .card-bg:after{
     content: '';
     background: inherit; 
     position: absolute;
@@ -45,4 +45,4 @@ body {
     bottom: 0;
     box-shadow: inset 0 0 0 200px rgba(255,255,255,0.05);
     filter: blur(10px);
-   } */
+   }
