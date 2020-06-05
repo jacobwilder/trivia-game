@@ -639,19 +639,17 @@ $(document).ready(function () {
 
     //WORK IN PROGRESS
     function retry() {
-        correct = 0;
-        incorrect = 0;
         
+        userChoice = [];
         timeLeft = 20;
+        
         if (correct == 5) {
             timeLeft = timeLeft + correct;
         }
         
         $("#questioncontainer").show();
         $("#submit").show();
-
-        quizBank = questions.slice();
-
+        
         $("h3").html("");
         $("input").val("");
 
