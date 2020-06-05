@@ -489,7 +489,7 @@ $(document).ready(function () {
             "12",
             "3"
         ],
-        correct: "Three"
+        correct: "3"
     }
 ];
 
