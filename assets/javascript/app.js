@@ -494,7 +494,7 @@ $(document).ready(function () {
 ];
 
 
-    let timeLeft = 20;
+    let timeLeft = 30;
     let countDown;
     let correct = 0;
     let incorrect = 0;
@@ -641,7 +641,7 @@ $(document).ready(function () {
     function retry() {
         
         userChoice = [];
-        timeLeft = 20;
+        timeLeft = 30;
         
         if (correct == 5) {
             timeLeft = timeLeft + correct;
