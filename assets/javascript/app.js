@@ -637,7 +637,7 @@ $(document).ready(function () {
         $("#score").html("<h2>Total Score: " + correct + " out of " + (incorrect + correct) + "</h2>");
     }
 
-    //WORK IN PROGRESS
+    // WORK IN PROGRESS (REMOVE ANSWERED QUESTIONS)
     function retry() {
         
         userChoice = [];
