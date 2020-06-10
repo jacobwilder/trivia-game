@@ -1,5 +1,6 @@
 // import questions from './quiz';
 $(document).ready(function () {
+    
     // question pool
     const questions = [{
         question: "In what year was the first ever Wimbledon Championship held?",
@@ -493,7 +494,7 @@ $(document).ready(function () {
     }
 ];
 
-
+    // Default Variables
     let timeLeft = 30;
     let countDown;
     let correct = 0;
@@ -510,12 +511,8 @@ $(document).ready(function () {
     $("#start").on("click", timer);
     $("#submit").on("click", finish);
     $("#retry").on("click", retry);
-
-    console.log("quizBank: " + JSON.stringify(quizBank, null, 4));
-    console.log("output: " + JSON.stringify(output, null, 4));
-    console.table(output);
     
-    //quiz formation function WORK IN PROGRESS
+    // function to populate questions to page
     function populateQuiz() {
         $("h3").html("");
         $("input").val("");
@@ -568,8 +565,8 @@ $(document).ready(function () {
 
 
     }
-    // adds questions to headers with respective tags
-
+    
+    // timer start
     function timer() {
         clearInterval(countDown);
         countDown = setInterval(decrement, 1000);
@@ -596,7 +593,7 @@ $(document).ready(function () {
         }
     }
 
-
+    // logs user answers
     function finish() {
 
         clearInterval(countDown);
@@ -638,7 +635,7 @@ $(document).ready(function () {
         }
     }
     
-    // WORK IN PROGRESS (REMOVE ANSWERED QUESTIONS)
+    // resets values, replaces questions
     function retry() {
         
         userChoice = [];
@@ -656,8 +653,7 @@ $(document).ready(function () {
 
         populateQuiz();
 
-        console.log("quizBank: " + JSON.stringify(quizBank, null, 4));
-        console.log("output: " + JSON.stringify(output, null, 4));
+        console.log("Good luck! Won't find the answers here!");
         
         clearInterval(countDown);
         countDown = setInterval(decrement, 1000);
@@ -670,5 +666,4 @@ $(document).ready(function () {
         $("#results").hide();
         $("input").prop('checked', false);
     }
-
 })
