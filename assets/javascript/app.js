@@ -627,12 +627,6 @@ $(document).ready(function () {
         $("#wrong").html("<h2>Wrong Guesses: " + incorrect + "</h2>");
         $("#score").html("<h2>Total Score: " + correct + " out of " + (incorrect + correct) + "</h2>");
 
-        // removes answered questions from array
-        for (i = 0; i < questions.length; i ++) {
-            if (questions[i].correct == output[i].correct) {
-                questions.splice(i, 1);
-            }
-        }
     }
     
     // resets values, replaces questions
