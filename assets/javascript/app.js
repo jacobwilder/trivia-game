@@ -517,11 +517,11 @@ $(document).ready(function () {
         $("h3").html("");
         $("input").val("");
 
-            while (quizBank.length > 0 && output.length < 5) {
+        while (quizBank.length > 0 && output.length < 5) {
             let index = Math.random() * quizBank.length;
             let question = quizBank.splice(index, 1);
             output.push(question[0]);
-            }
+        }
 
         $("#question1").prepend(output[0].question);
         $("#question2").prepend(output[1].question);
@@ -529,35 +529,30 @@ $(document).ready(function () {
         $("#question4").prepend(output[3].question);
         $("#question5").prepend(output[4].question);
     
-        $("#question1-answers input").each(function (i) {
-    
+        $("#question1-answers input").each(function (i) {    
             $(this).next().html(output[0].answers[i]);
             $(this).attr("value", output[0].answers[i])
         });
     
-        $("#question2-answers input").each(function (i) {
-    
+        $("#question2-answers input").each(function (i) {    
             $(this).next().html(output[1].answers[i]);
             $(this).attr("value", output[1].answers[i])
     
         });
     
-        $("#question3-answers input").each(function (i) {
-    
+        $("#question3-answers input").each(function (i) {    
             $(this).next().html(output[2].answers[i]);
             $(this).attr("value", output[2].answers[i])
         
         });
     
-        $("#question4-answers input").each(function (i) {
-    
+        $("#question4-answers input").each(function (i) {    
             $(this).next().html(output[3].answers[i]);
             $(this).attr("value", output[3].answers[i])
         
         });
     
-        $("#question5-answers input").each(function (i) {
-    
+        $("#question5-answers input").each(function (i) {    
             $(this).next().html(output[4].answers[i]);
             $(this).attr("value", output[4].answers[i])
 
@@ -619,8 +614,7 @@ $(document).ready(function () {
                 incorrect++;
             }
         }
-        
-        
+    
         output = [];
         
         $("#correct").html("<h2>Correct Guesses: " + correct + "</h2>");
