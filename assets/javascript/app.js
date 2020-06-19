@@ -606,6 +606,7 @@ $(document).ready(function () {
         userChoice.push($('input[name=inlineRadioOptions4]:checked').val());
         userChoice.push($('input[name=inlineRadioOptions5]:checked').val());
 
+        // Should remove answered questions from output (WIP)
         for (i = 0; i < output.length; i++) {
             if (userChoice[i] === output[i].correct) {
                 correct++;
