@@ -5,6 +5,6 @@ $(document).ready(function () {
    gsap.from("#quiz-wrapper", {duration: 0.5, y: 800, scale: 1});
 
    $("#start").on("click", function() {
-      gsap.to("#quiz-wrapper", {duration: 0.5, rotation: 360, scale: 1})
+      gsap.to("#quiz-wrapper", {duration: 0.7, rotation: 360, scale: 1})
    });
 })
