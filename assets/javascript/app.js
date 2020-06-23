@@ -577,7 +577,7 @@ $(document).ready(function () {
         $(".jumbotron").html("<h2>Time Remaining: " + timeLeft + "</h2>");
         if (timeLeft === 0) {
             Swal.fire({
-                title: 'You ran out of time!',
+                title: 'Oh No! You ran out of time!',
                 text: 'Click to try again',
                 icon: 'error',
                 confirmButtonText: 'Retry?'
