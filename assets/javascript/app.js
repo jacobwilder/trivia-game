@@ -592,6 +592,8 @@ $(document).ready(function () {
     function finish() {
 
         clearInterval(countDown);
+
+        console.log("finished!")
         
         $("#timeRemaining").hide();
         $("#submit").hide();
