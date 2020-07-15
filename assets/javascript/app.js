@@ -504,6 +504,7 @@ $(document).ready(function () {
     let output = [];
     let answered =[];
 
+    // hiding assets on page load
     $("#finish").hide();
     $(".questions").hide();
     $("#retry").hide();
@@ -557,8 +558,6 @@ $(document).ready(function () {
             $(this).attr("value", output[4].answers[i])
 
         });
-
-
     }
     
     // timer start
@@ -658,3 +657,5 @@ $(document).ready(function () {
         $("input").prop('checked', false);
     }
 })
+
+// TO DO: FIND TRIVIA API TO IMPLEMENT, QUIZ RUNS OUT OF QUESTIONS AFTER ~10 ATTEMPTS
